@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,88 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HeaderCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="556-eK-NqG">
+                                <rect key="frame" x="0.0" y="64" width="414" height="50"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xLy-Xz-NPR">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="W8d-BB-8Qp">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dgq-8V-fT9">
+                                                <rect key="frame" x="0.0" y="-1.5" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </view>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZZ-pJ-6l0">
+                                        <rect key="frame" x="0.0" y="47" width="60" height="3"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Igw-q3-Nos"/>
+                                            <constraint firstAttribute="height" constant="3" id="zST-K6-a6j"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xLy-Xz-NPR" firstAttribute="leading" secondItem="556-eK-NqG" secondAttribute="leading" id="4bs-r5-WNB"/>
+                                    <constraint firstAttribute="height" constant="50" id="4gf-0p-nsl"/>
+                                    <constraint firstItem="LZZ-pJ-6l0" firstAttribute="leading" secondItem="556-eK-NqG" secondAttribute="leading" id="StN-jk-HM9"/>
+                                    <constraint firstAttribute="trailing" secondItem="xLy-Xz-NPR" secondAttribute="trailing" id="VW7-i5-IH5"/>
+                                    <constraint firstItem="xLy-Xz-NPR" firstAttribute="top" secondItem="556-eK-NqG" secondAttribute="top" id="cE2-eg-oBA"/>
+                                    <constraint firstAttribute="bottom" secondItem="LZZ-pJ-6l0" secondAttribute="bottom" id="cb7-Cb-woa"/>
+                                    <constraint firstItem="LZZ-pJ-6l0" firstAttribute="top" secondItem="xLy-Xz-NPR" secondAttribute="bottom" id="r6C-7r-Sdn"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJS-Uw-XJN" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="114" width="414" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="nUF-BT-iLv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="556-eK-NqG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GfL-jw-fiv"/>
+                            <constraint firstItem="ZJS-Uw-XJN" firstAttribute="top" secondItem="556-eK-NqG" secondAttribute="bottom" id="HcH-My-s79"/>
+                            <constraint firstItem="556-eK-NqG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ux1-nv-O64"/>
+                            <constraint firstItem="556-eK-NqG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="g6O-XG-mUu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZJS-Uw-XJN" secondAttribute="trailing" id="gu3-vv-oed"/>
+                            <constraint firstItem="ZJS-Uw-XJN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yGm-R7-S9g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="calendar" destination="ZJS-Uw-XJN" id="xTi-Ul-1Sn"/>
+                        <outlet property="collectionView" destination="xLy-Xz-NPR" id="r0n-QZ-uvH"/>
+                        <outlet property="leftConstraintConstant" destination="StN-jk-HM9" id="K6O-l2-pNn"/>
+                        <outlet property="widthConstraintConstant" destination="Igw-q3-Nos" id="mh4-yY-Qqs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <collectionViewFlowLayout minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vw0-uz-Q84">
+                    <size key="itemSize" width="50" height="50"/>
+                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </collectionViewFlowLayout>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
