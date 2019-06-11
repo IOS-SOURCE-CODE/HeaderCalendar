@@ -33,11 +33,7 @@ class ViewController: UIViewController {
 		
 		calendar.delegate = self
 		calendar.dataSource = self
-		
-		
-		
-		let temp = DateComponents(month: 1, day: -1)
-		debugPrint("temp of \(temp)")
+		calendar.placeholderType = .none
 		
 		mockData()
 		setupCollectionViewCell()
@@ -62,8 +58,8 @@ class ViewController: UIViewController {
 	fileprivate func setupCalendar() {
 		calendar.calendarHeaderView.isHidden = true
 		calendar.headerHeight = 0
-//		guard let currentPage = models.first else { return }
-//		calendar.currentPage = currentPage
+		guard let currentPage = models.first else { return }
+		calendar.currentPage = currentPage
 		calendar.allowsMultipleSelection = false
 		calendar.collectionView.isScrollEnabled = false
 		calendar.appearance.weekdayTextColor = UIColor.gray
@@ -116,6 +112,14 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
 			return Date()
 		}
 		return day
+	}
+	
+	func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+		if self.models.contains(date) {
+			return false
+		}
+		
+		return true
 	}
 }
 

@@ -61,7 +61,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJS-Uw-XJN" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="114" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="134" width="414" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="nUF-BT-iLv"/>
@@ -71,7 +71,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="556-eK-NqG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GfL-jw-fiv"/>
-                            <constraint firstItem="ZJS-Uw-XJN" firstAttribute="top" secondItem="556-eK-NqG" secondAttribute="bottom" id="HcH-My-s79"/>
+                            <constraint firstItem="ZJS-Uw-XJN" firstAttribute="top" secondItem="556-eK-NqG" secondAttribute="bottom" constant="20" id="HcH-My-s79"/>
                             <constraint firstItem="556-eK-NqG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ux1-nv-O64"/>
                             <constraint firstItem="556-eK-NqG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="g6O-XG-mUu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZJS-Uw-XJN" secondAttribute="trailing" id="gu3-vv-oed"/>
