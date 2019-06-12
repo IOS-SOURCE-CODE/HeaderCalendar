@@ -16,6 +16,10 @@ class ViewController: UIViewController {
 	@IBOutlet weak var widthConstraintConstant: NSLayoutConstraint!
 	@IBOutlet weak var leftConstraintConstant: NSLayoutConstraint!
 	
+	
+	
+	
+	
 	var constLeft: CGFloat = 0.0
 	
 	var models: [Date] = []

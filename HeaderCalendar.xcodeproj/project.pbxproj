@@ -15,6 +15,7 @@
 		71AF0FAB22AE17F7003B1C2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71AF0FA922AE17F7003B1C2C /* LaunchScreen.storyboard */; };
 		71AF0FB522AE1968003B1C2C /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AF0FB322AE1968003B1C2C /* HeaderCell.swift */; };
 		71AF0FB622AE1968003B1C2C /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AF0FB422AE1968003B1C2C /* HeaderCell.xib */; };
+		71D4784D22B0A94A00B24C03 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D4784C22B0A94A00B24C03 /* BubbleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		71AF0FAC22AE17F7003B1C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71AF0FB322AE1968003B1C2C /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		71AF0FB422AE1968003B1C2C /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		71D4784C22B0A94A00B24C03 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		72D9BE2F6AB07DDDFF7A11B8 /* Pods-HeaderCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeaderCalendar.debug.xcconfig"; path = "Target Support Files/Pods-HeaderCalendar/Pods-HeaderCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		A7250FD11EDFBB7587B4DDE9 /* Pods_HeaderCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeaderCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 				71AF0FA722AE17F7003B1C2C /* Assets.xcassets */,
 				71AF0FA922AE17F7003B1C2C /* LaunchScreen.storyboard */,
 				71AF0FAC22AE17F7003B1C2C /* Info.plist */,
+				71D4784C22B0A94A00B24C03 /* BubbleView.swift */,
 			);
 			path = HeaderCalendar;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			files = (
 				71AF0FA322AE17F5003B1C2C /* ViewController.swift in Sources */,
 				71AF0FB522AE1968003B1C2C /* HeaderCell.swift in Sources */,
+				71D4784D22B0A94A00B24C03 /* BubbleView.swift in Sources */,
 				71AF0FA122AE17F5003B1C2C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
