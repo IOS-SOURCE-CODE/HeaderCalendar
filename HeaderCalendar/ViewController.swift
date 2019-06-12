@@ -11,13 +11,11 @@ import FSCalendar
 
 class ViewController: UIViewController {
 
+	@IBOutlet weak var bubleView: BubbleView!
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var calendar: FSCalendar!
 	@IBOutlet weak var widthConstraintConstant: NSLayoutConstraint!
 	@IBOutlet weak var leftConstraintConstant: NSLayoutConstraint!
-	
-	
-	
 	
 	
 	var constLeft: CGFloat = 0.0
@@ -28,6 +26,9 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		bubleView.ageLabel.text = "jdfkjkdjfjdlksjdlkjkdfjkdjfkdjkdjfklkdfkdjf"
+		bubleView.setNeedsLayout()
+		bubleView.setNeedsDisplay()
 		
 		constLeft = ((UIScreen.main.bounds.width / 3) - widthConstraintConstant.constant) / 2
 		leftConstraintConstant.constant = constLeft

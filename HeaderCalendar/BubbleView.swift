@@ -21,7 +21,7 @@ class BubbleView: UIView {
 		let label = UILabel()
 		label.textColor = .lightGray
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = "Hello world"
+		label.numberOfLines = 0
 		label.sizeToFit()
 		return label
 	}()
@@ -44,12 +44,7 @@ class BubbleView: UIView {
 	}
 	
 	fileprivate func setupView() {
-		
-		debugPrint("frame of age label \(ageLabel.frame)")
-		
-		
-		
-		
+	
 		addSubview(contentView)
 		
 		contentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -61,6 +56,7 @@ class BubbleView: UIView {
 		
 		ageLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
 		ageLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+	
 		
 	}
 
