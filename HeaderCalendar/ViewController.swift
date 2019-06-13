@@ -31,9 +31,10 @@ class ViewController: UIViewController {
 		bubleView = BubbleView.setText(value: "$56KKKKKKK")
 		self.view.addSubview(bubleView)
 		
-		debugPrint("value of content view \(bubleView.contentView.frame)")
-//		drawImageView.image = BubbleView.convertToImage(with: bubleView)
-		
+		 let image = UIImage(named: "Union")!
+		let drawICON = BubbleView.drawText(text: "500", inImage: image, point: drawImageView.frame.origin)
+		drawImageView.image = drawICON
+
 		
 		constLeft = ((UIScreen.main.bounds.width / 3) - widthConstraintConstant.constant) / 2
 		leftConstraintConstant.constant = constLeft

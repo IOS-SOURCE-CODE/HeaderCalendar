@@ -113,7 +113,7 @@ class BubbleView: UIView {
 	
 	private func createReplyViewLayer() -> UIBezierPath {
 		let originX = contentView.bounds.origin.x
-		let originY = contentView.bounds.origin.y
+//		let originY = contentView.bounds.origin.y
 		
 		let width = contentView.frame.size.width
 		let height = contentView.frame.size.height
@@ -147,5 +147,33 @@ class BubbleView: UIView {
 		path.close()
 		
 		return path
+	}
+	
+}
+
+
+extension BubbleView {
+	static func drawText(text: String, inImage: UIImage, point: CGPoint = .zero) -> UIImage? {
+	
+		let size = inImage.size
+		let font = UIFont.systemFont(ofSize: size.width / 4)
+		let textSize = text.size(withAttributes: [NSAttributedString.Key.font: font])
+	
+		let style : NSMutableParagraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+		style.alignment = .center
+		let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.foregroundColor: UIColor.white ]
+
+		UIGraphicsBeginImageContext(size)
+		
+		inImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+	
+		let textPoint = CGPoint(x: (size.width - textSize.width) / 2, y: (size.height - textSize.height) / 2 - 10)
+		let textRect = CGRect(origin: textPoint, size: textSize)
+		text.draw(in: textRect, withAttributes: attributes)
+
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		
+		return image
 	}
 }
