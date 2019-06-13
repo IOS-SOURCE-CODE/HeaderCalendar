@@ -27,8 +27,7 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		bubleView = BubbleView.setText(value: "Hello me")
-//		bubleView.ageLabel.text = "jdfkjkdjfjdlksjdlkjkdfjkdjfkdjkdjfklkdfkdjf"
+		bubleView = BubbleView.setText(value: "$56KKKKKKK")
 		self.view.addSubview(bubleView)
 		
 		constLeft = ((UIScreen.main.bounds.width / 3) - widthConstraintConstant.constant) / 2
