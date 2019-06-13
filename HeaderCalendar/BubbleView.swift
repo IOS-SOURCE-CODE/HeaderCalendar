@@ -12,7 +12,7 @@ class BubbleView: UIView {
 	
 	private lazy var contentView: UIView = {
 		let view = UIView()
-		view.backgroundColor = UIColor.blue
+		view.backgroundColor = UIColor.gray
 		view.translatesAutoresizingMaskIntoConstraints = false
 		return view
 	}()
@@ -45,7 +45,8 @@ class BubbleView: UIView {
 	static func setText(value: String, fontSize: CGFloat = 15) -> BubbleView {
 		let title: NSString = value as NSString
 		let size = title.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)])
-		let frame = CGRect(x: 50, y: 500, width: size.width, height: 22)
+		let cgPoint = CGPoint(x: 50, y: 500)
+		let frame = CGRect(x: cgPoint.x, y: cgPoint.y, width: size.width, height: 22)
 		let bubbleView = BubbleView(frame: frame)
 		bubbleView.textLabel.text = value
 		return bubbleView
