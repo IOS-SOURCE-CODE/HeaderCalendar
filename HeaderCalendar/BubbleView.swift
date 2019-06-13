@@ -10,14 +10,14 @@ import UIKit
 
 class BubbleView: UIView {
 	
-	private lazy var contentView: UIView = {
+	 lazy var contentView: UIView = {
 		let view = UIView()
 		view.backgroundColor = UIColor.gray
 		view.translatesAutoresizingMaskIntoConstraints = false
 		return view
 	}()
 	
-	lazy var textLabel: UILabel = {
+	private lazy var textLabel: UILabel = {
 		let label = UILabel()
 		label.font = UIFont.systemFont(ofSize: 11, weight: .medium)
 		label.textColor = .white
@@ -45,11 +45,26 @@ class BubbleView: UIView {
 	static func setText(value: String, fontSize: CGFloat = 15) -> BubbleView {
 		let title: NSString = value as NSString
 		let size = title.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)])
-		let cgPoint = CGPoint(x: 50, y: 500)
+//		let cgPoint = CGPoint(x: 50, y: 200)
+		let cgPoint = CGPoint.zero
+		
 		let frame = CGRect(x: cgPoint.x, y: cgPoint.y, width: size.width, height: 22)
 		let bubbleView = BubbleView(frame: frame)
 		bubbleView.textLabel.text = value
 		return bubbleView
+	}
+	
+	static func convertToImage(with drawView: UIView) -> UIImage? {
+//		UIGraphicsBeginImageContext(drawView.frame.size)
+//		drawView.layer.render(in:UIGraphicsGetCurrentContext()!)
+//		let image = UIGraphicsGetImageFromCurrentImageContext()
+//		UIGraphicsEndImageContext()
+//		return image
+		let renderer = UIGraphicsImageRenderer(size: drawView.bounds.size)
+		let image = renderer.image { ctx in
+			drawView.drawHierarchy(in: drawView.bounds, afterScreenUpdates: true)
+		}
+		return image
 	}
 	
 	fileprivate func setupView() {
