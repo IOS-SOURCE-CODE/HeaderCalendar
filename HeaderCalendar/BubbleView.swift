@@ -19,7 +19,8 @@ class BubbleView: UIView {
 	
 	lazy var ageLabel: UILabel = {
 		let label = UILabel()
-		label.textColor = .lightGray
+//		label.text = "Hello hello hello"
+		label.textColor = .red
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.numberOfLines = 0
 		label.sizeToFit()
@@ -30,17 +31,21 @@ class BubbleView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		backgroundColor = .white
-		
-		self.frame = ageLabel.frame
-		self.setNeedsLayout()
-		self.layoutIfNeeded()
-		
 		setupView()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setupView()
+	}
+	
+	static func setText(value: String) -> BubbleView {
+		let title: NSString = value as NSString
+		let size = title.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20.0)])
+		let frame = CGRect(x: 50, y: 500, width: size.width, height: 30)
+		let bubbleView = BubbleView(frame: frame)
+		bubbleView.ageLabel.text = value
+		return bubbleView
 	}
 	
 	fileprivate func setupView() {
@@ -50,13 +55,17 @@ class BubbleView: UIView {
 		contentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
 		contentView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 		contentView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-		contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+		contentView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10).isActive = true
 		
 		contentView.addSubview(ageLabel)
-		
-		ageLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-		ageLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 	
+//		ageLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+//		ageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+//		ageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+//		ageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10).isActive = true
+		
+		ageLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+		ageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
 		
 	}
 
@@ -86,7 +95,6 @@ class BubbleView: UIView {
 	
 	private func createReplyViewLayer() -> UIBezierPath {
 		let originX = contentView.bounds.origin.x
-//		let originY = contentView.bounds.origin.y
 		let width = contentView.frame.size.width
 		let height = contentView.frame.size.height
 		let centerPoint = width / 2

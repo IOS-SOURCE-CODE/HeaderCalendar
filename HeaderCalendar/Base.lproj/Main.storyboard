@@ -85,7 +85,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bubleView" destination="E3w-3o-hZq" id="PEd-Zn-4st"/>
                         <outlet property="calendar" destination="ZJS-Uw-XJN" id="xTi-Ul-1Sn"/>
                         <outlet property="collectionView" destination="xLy-Xz-NPR" id="r0n-QZ-uvH"/>
                         <outlet property="leftConstraintConstant" destination="StN-jk-HM9" id="K6O-l2-pNn"/>
