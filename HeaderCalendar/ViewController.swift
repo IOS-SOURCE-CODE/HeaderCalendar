@@ -10,7 +10,7 @@ import UIKit
 import FSCalendar
 
 class ViewController: UIViewController {
-
+	
 	@IBOutlet weak var drawImageView: UIImageView!
 	//	@IBOutlet weak var bubleView: BubbleView!
 	@IBOutlet weak var collectionView: UICollectionView!
@@ -28,13 +28,17 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		bubleView = BubbleView.setText(value: "$56KKKKKKK")
+		bubleView = BubbleView.setText(value: "$6660000000000000")
 		self.view.addSubview(bubleView)
 		
-		 let image = UIImage(named: "Union")!
-		let drawICON = BubbleView.drawText(text: "500", inImage: image, point: drawImageView.frame.origin)
-		drawImageView.image = drawICON
-
+		
+		
+		//				 let image = UIImage(named: "Union")!
+		//				let drawICON = BubbleView.drawText(text: "500000000000000000", inImage: image)
+		//				drawImageView.image = drawICON
+		//
+		//		drawImageView.layoutIfNeeded()
+		
 		
 		constLeft = ((UIScreen.main.bounds.width / 3) - widthConstraintConstant.constant) / 2
 		leftConstraintConstant.constant = constLeft
@@ -51,10 +55,12 @@ class ViewController: UIViewController {
 		setupCalendar()
 	}
 	
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-		bubleView.setNeedsDisplay()
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		let convertimage = bubleView.convertToImage()
+		drawImageView.image = convertimage
 	}
+	
 
 	fileprivate func mockData() {
 		let curretDate = Date()
@@ -79,9 +85,9 @@ class ViewController: UIViewController {
 		calendar.allowsMultipleSelection = false
 		calendar.collectionView.isScrollEnabled = false
 		calendar.appearance.weekdayTextColor = UIColor.gray
-	
+		
 	}
-
+	
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -114,7 +120,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 		return 0
 	}
-
+	
 }
 
 extension ViewController: FSCalendarDelegate, FSCalendarDataSource {

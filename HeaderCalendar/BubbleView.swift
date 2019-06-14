@@ -54,15 +54,20 @@ class BubbleView: UIView {
 		return bubbleView
 	}
 	
-	static func convertToImage(with drawView: UIView) -> UIImage? {
-//		UIGraphicsBeginImageContext(drawView.frame.size)
-//		drawView.layer.render(in:UIGraphicsGetCurrentContext()!)
-//		let image = UIGraphicsGetImageFromCurrentImageContext()
-//		UIGraphicsEndImageContext()
-//		return image
-		let renderer = UIGraphicsImageRenderer(size: drawView.bounds.size)
+	func convertToImage() -> UIImage? {
+		UIGraphicsBeginImageContextWithOptions(contentView.bounds.size, false, UIScreen.main.scale)
+		guard let context = UIGraphicsGetCurrentContext() else { return nil}
+		contentView.layer.render(in: context)
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return image
+		
+	}
+	
+	func generateImage() -> UIImage? {
+		let renderer = UIGraphicsImageRenderer(size: self.contentView.frame.size)
 		let image = renderer.image { ctx in
-			drawView.drawHierarchy(in: drawView.bounds, afterScreenUpdates: true)
+			self.drawHierarchy(in: self.frame, afterScreenUpdates: true)
 		}
 		return image
 	}
@@ -153,27 +158,53 @@ class BubbleView: UIView {
 
 
 extension BubbleView {
+	
+	
 	static func drawText(text: String, inImage: UIImage, point: CGPoint = .zero) -> UIImage? {
-	
+		
 		let size = inImage.size
-		let font = UIFont.systemFont(ofSize: size.width / 4)
+		let font = UIFont.systemFont(ofSize: size.width / 3.5)
 		let textSize = text.size(withAttributes: [NSAttributedString.Key.font: font])
-	
+		
 		let style : NSMutableParagraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
 		style.alignment = .center
 		let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.foregroundColor: UIColor.white ]
-
-		UIGraphicsBeginImageContext(size)
 		
-		inImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-	
+		UIGraphicsBeginImageContext(textSize)
+		
+		inImage.draw(in: CGRect(x: 0, y: 0, width: textSize.width, height: size.height))
+		
 		let textPoint = CGPoint(x: (size.width - textSize.width) / 2, y: (size.height - textSize.height) / 2 - 10)
 		let textRect = CGRect(origin: textPoint, size: textSize)
 		text.draw(in: textRect, withAttributes: attributes)
-
+		
 		let image = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		
 		return image
 	}
+	
+//	static func drawText(text: String, inImage: UIImage, point: CGPoint = .zero) -> UIImage? {
+//
+//		let size = inImage.size
+//		let font = UIFont.systemFont(ofSize: size.width / 3.5)
+//		let textSize = text.size(withAttributes: [NSAttributedString.Key.font: font])
+//
+//		let style : NSMutableParagraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+//		style.alignment = .center
+//		let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.foregroundColor: UIColor.white ]
+//
+//		UIGraphicsBeginImageContext(size)
+//
+//		inImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+//
+//		let textPoint = CGPoint(x: (size.width - textSize.width) / 2, y: (size.height - textSize.height) / 2 - 10)
+//		let textRect = CGRect(origin: textPoint, size: textSize)
+//		text.draw(in: textRect, withAttributes: attributes)
+//
+//		let image = UIGraphicsGetImageFromCurrentImageContext()
+//		UIGraphicsEndImageContext()
+//
+//		return image
+//	}
 }
